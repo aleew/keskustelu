@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="foundation/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="foundation/css/foundation.min.css" />
+
+	<style>
+		.fullWidth {
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: initial;
+		}
+		.no-pad {
+		   padding: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+		function korkeus() 
+		{
+			document.getElementById("css").innerHTML = '.frames { height:' + (window.innerHeight -10) + 'px; }'
+		}
+
+
+		var haku = null;
+		
+		function siirry(key, dis)
+		{
+			if (haku == null)
+			{
+				haku = key;
+			}
+			else {
+				if (key == haku)
+				{
+					document.getElementById(dis.name).src = "http://" + dis.value;
+				}
+			}
+		}
+
+
+
+
+	</script>
+</head>
+<body onload="korkeus()" onresize="korkeus()">
+	<style id="css">
+		.frames {
+			height: 500px;
+		}
+	</style>
+
+	<div class="row fullWidth">
+		<div class="medium-12 large-6 columns no-pad">
+			<input type="text" name="vasen" onkeypress="siirry(event.keyCode, this);" class="fullWidth"/>
+			<iframe id="vasen" src="keskustelu" seamless class="frames" style="width:100%;border:0px"></iframe>
+		</div>
+		<div class="show-for-large-up">
+			<div class="large-6 columns no-pad">
+				<input type="text" name="oikea" class="fullWidth"/>
+				<iframe id="oikea" src="keskustelu" seamless class="frames" style="width:100%;border:0px;border-left:5px"></iframe>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
